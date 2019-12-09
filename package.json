@@ -4,7 +4,8 @@
   "description": "Devcamper backend API",
   "main": "server.js",
   "scripts": {
-    "test": "Kerry Myles"
+    "start": "NODE_ENV=production node server",
+    "dev": "nodemon server"
   },
   "repository": {
     "type": "git",
