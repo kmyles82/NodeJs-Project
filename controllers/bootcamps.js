@@ -5,7 +5,7 @@ const asyncHandler = require('../middleware/async')
 const path = require('path')
 
 //@desc     Get all bootcamps
-//@route    GET /api/v1/bootcamps
+//@route    GET /api/v1/bootcamps 
 //@access   Public
 exports.getBootcamps = asyncHandler(async (req, res, next) => {
     res.status(200).json(res.advancedResults)

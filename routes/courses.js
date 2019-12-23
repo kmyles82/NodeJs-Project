@@ -20,7 +20,8 @@ router.route('/')
     select: 'name description'
     }), getCourses)
     .post(addCourse)
-    
+
 router.route('/:id').get(getCourse).put(updateCourse).delete(deleteCourse)
 
 module.exports = router;
+
