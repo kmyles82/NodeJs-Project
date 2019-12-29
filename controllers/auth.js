@@ -118,10 +118,10 @@ exports.forgotPassword = asyncHandler(async (req, res, next) => {
 //@access   Public
 exports.resetPassword = asyncHandler(async (req, res, next) => {
     //Get hashed token
-    const resetResetPasswordToken = crypto.createHash('sha256').update(req.params.resettoken).digest('hex')
+    const resetPasswordToken = crypto.createHash('sha256').update(req.params.resettoken).digest('hex')
     
     const user = await User.findOne({
-        resetResetPasswordToken,
+        resetPasswordToken,
         resetPasswordExpire: { $gt: Date.now() }
     });
 
@@ -131,7 +131,7 @@ exports.resetPassword = asyncHandler(async (req, res, next) => {
 
     //Set new password
     user.password = req.body.password;
-    user.resetResetPasswordToken = undefined;
+    user.resetPasswordToken = undefined;
     user.resetPasswordExpire = undefined;
 
     await user.save();
