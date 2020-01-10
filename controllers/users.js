@@ -30,7 +30,7 @@ exports.getUser = asyncHandler(async (req, res, next) => {
 //@access   Private/Admin
 exports.createUser = asyncHandler(async (req, res, next) => {
     const user = await User.create(req.body);
-
+    console.log(user)
     res.status(201).json({
         success: true,
         data: user
